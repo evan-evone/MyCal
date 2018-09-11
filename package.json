@@ -1,0 +1,25 @@
+{
+  "name": "mycal",
+  "version": "1.0.0",
+  "description": "An open-source Calendar utility for *EASY* customization.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cal",
+    "calendar",
+    "custom",
+    "customization"
+  ],
+  "author": "Evan Keeton",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evan-evone/MyCal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evan-evone/MyCal/issues"
+  },
+  "homepage": "https://github.com/evan-evone/MyCal#readme"
+}
