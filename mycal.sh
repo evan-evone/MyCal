@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 
-if [ "$1"=="month" ]; then
-  gcal -H '\e[34m:\e[0m:\e[32m:\e[0m' -q US_AK $(date "+%m %Y")
-elif [ "$1"=="year" ]; then
-  gcal -H '\e[34m:\e[0m:\e[32m:\e[0m' -q US_AK $(date "+%Y")
+if [ -f './mycal.sh' ] && [ -f './color.py' ] && [ -f './arg.py' ]; then
+  wd="."
 else
-  gcal
+  wd="$(ls -lhAG $(which mycal) | awk '{print $NF}')"
+  wd="${wd%/*}/"
+fi
+
+args="$@"
+color=$($wd/color.py '$@')
+other_args=$($wd/arg.py "$@")
+
+if [[ " ${args[@]} " =~ " month " ]]; then
+  gcal -s 1 -H $color -q US_AK $(date "+%m %Y") "$other_args"
+elif [[ " ${args[@]} " =~ " year " ]]; then
+  gcal -s 1 -H $color -q US_AK $(date "+%Y") "$other_args"
+else
+  gcal -s 1 -H $color -q US_AK "$other_args"
 fi
